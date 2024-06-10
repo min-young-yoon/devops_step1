@@ -53,8 +53,8 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-    # 8080 -> 8080 포트로 수행하도록 지정
+    # 8080 -> 8090 포트로 수행하도록 지정
     - name: Docker run
       run: |
         sudo docker stop devops_step1 && sudo docker rm devops_step1 && sudo docker rmi ${{ secrets.DOCKER_USERNAME }}/devops_step1:latest
-        sudo docker run -d -p 8080:8080 --name devops_step1 --restart always ${{ secrets.DOCKER_USERNAME }}/devops_step1:latest
+        sudo docker run -d -p 8080:8090 --name devops_step1 --restart always ${{ secrets.DOCKER_USERNAME }}/devops_step1:latest
